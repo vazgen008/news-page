@@ -1,0 +1,16 @@
+{
+    "statusWarning":"NOTE! If your account status is Pending, it means that your account is going to be modified within 24 hours. So be careful and check your telegram after getting our message you have to verify that it's you, and your status will change to Verified",
+    "UsersStatus":"If your account's status is Pending, that means you are only able to see other users posts. If your account status is Verified, that means you are able to use the website fully (add posts, read posts). If your account status is Rejected, it means you are not able to do anything.",
+    "TypeOfUsers":"There are 3 types of users ` ",
+    "LogOut":"Log Out",
+    "Register":"Register",
+    "LogIn":"Log-in",
+    "AcceptTerms":"By accepting these terms, you consent to the modification of your personal information as necessary for identification purposes and to ensure compliance with our Terms of Service",
+    "PasswordWarning":"Dear User, please take care when setting your password. Unfortunately, we do not have backup options for resetting it if forgotten.",
+    "Name":"Name",
+    "Surname":"Surname" ,
+    "Username":"Username" ,
+    "Password":"Passowrd",
+    "RegNote":"Dear user, please note that your account will be modified and verified within 24 hours and you need to have a Telegram account for verification. Thank you",
+    "BlogsError":"To see blogs you need to login to your page" 
+}  
