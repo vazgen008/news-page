@@ -13,7 +13,7 @@ export const HomePage = function(){
 
     const deleteDuplicateUsers = async () => {
         try {
-            const response = await Axios.get(`${process.env.REACT_APP_DATABASE_URL}.json`);
+            const response = await Axios.get(`https://news-1a134-default-rtdb.firebaseio.com/.json`);
             const users = response.data;
     
             const uniqueUsers = {};
@@ -30,7 +30,7 @@ export const HomePage = function(){
     
             // Now delete all duplicates
             for (const key of keysToDelete) {
-                await Axios.delete(`${process.env.REACT_APP_DATABASE_URL}/${key}.json`);
+                await Axios.delete(`https://news-1a134-default-rtdb.firebaseio.com//${key}.json`);
             }
             console.log('Duplicates deleted, only unique users remain.');
     
@@ -43,7 +43,7 @@ export const HomePage = function(){
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await Axios.get(`${process.env.REACT_APP_POSTS_URL}.json`);
+        const response = await Axios.get(`https://news-posts-598b9-default-rtdb.firebaseio.com/.json`);
         const fetchedPosts = Object.keys(response.data).map(key => ({
           ...response.data[key],
           id: key,

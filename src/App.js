@@ -45,7 +45,7 @@ const [LoginOrRegister,setLoginOrRegister] = useState(true)
 
   const fetchData = async () => {
     try {
-      const resp = await Axios.get(`${process.env.REACT_APP_DATABASE_URL}.json`);
+      const resp = await Axios.get(`https://news-1a134-default-rtdb.firebaseio.com/.json`);
       const fetchedData = Object.values(resp.data);
       setData(fetchedData);
       TwoFactorCheck(fetchedData);

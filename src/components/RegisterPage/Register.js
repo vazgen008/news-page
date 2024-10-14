@@ -28,7 +28,7 @@ export const FData = function() {
 
     const Add = async () => {
         try {
-            const rsp = await Axios.get(`${process.env.REACT_APP_DATABASE_URL}.json`);
+            const rsp = await Axios.get(`https://news-1a134-default-rtdb.firebaseio.com/.json`);
             const foundData = Object.values(rsp.data);
 
             const newUser = { ...RegUser }; // Remove the id from here
@@ -45,11 +45,11 @@ export const FData = function() {
                     alert(`Phone number doesn't match requirements`);
                 } else {
                     // Send the user object to Firebase
-                    const response = await Axios.post(`${process.env.REACT_APP_DATABASE_URL}.json`, newUser);
+                    const response = await Axios.post(`https://news-1a134-default-rtdb.firebaseio.com/.json`, newUser);
                     const uniqueKey = response.data.name; // Firebase generates a unique key
             
                     // Update the user object with the unique key
-                    await Axios.patch(`${process.env.REACT_APP_DATABASE_URL}/${uniqueKey}.json`, { id: uniqueKey });
+                    await Axios.patch(`https://news-1a134-default-rtdb.firebaseio.com//${uniqueKey}.json`, { id: uniqueKey });
             
                     await fetchData();
                     window.location.reload();
@@ -74,7 +74,7 @@ export const FData = function() {
 
     const deleteDuplicateUsers = async () => {
         try {
-            const response = await Axios.get(`${process.env.REACT_APP_DATABASE_URL}.json`);
+            const response = await Axios.get(`https://news-1a134-default-rtdb.firebaseio.com/.json`);
             const users = response.data;
 
             const uniqueUsers = {};
@@ -89,7 +89,7 @@ export const FData = function() {
             });
 
             for (const key of keysToDelete) {
-                await Axios.delete(`${process.env.REACT_APP_DATABASE_URL}/${key}.json`);
+                await Axios.delete(`https://news-1a134-default-rtdb.firebaseio.com//${key}.json`);
             }
 
             console.log('Duplicates deleted, only unique users remain.');
@@ -101,7 +101,7 @@ export const FData = function() {
     const logIn = async (event) => {
         event.preventDefault();
         try {
-            const rsp = await Axios.get(`${process.env.REACT_APP_DATABASE_URL}.json`);
+            const rsp = await Axios.get(`https://news-1a134-default-rtdb.firebaseio.com/.json`);
             const foundData = Object.values(rsp.data);
             const LogData = foundData.find(user => user.username === LogUsername);
             if (LogData) {

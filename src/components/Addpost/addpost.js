@@ -22,11 +22,11 @@ const PostForm = () => {
     
     try {
       // Post the data
-      const response = await Axios.post(`${process.env.REACT_APP_POSTS_URL}.json`, post);
+      const response = await Axios.post(`https://news-posts-598b9-default-rtdb.firebaseio.com/.json`, post);
       const uniqueKey = response.data.name;
   
       // Patch the data with the unique key
-      await Axios.patch(`${process.env.REACT_APP_POSTS_URL}/${uniqueKey}.json`, { id: uniqueKey });
+      await Axios.patch(`https://news-posts-598b9-default-rtdb.firebaseio.com//${uniqueKey}.json`, { id: uniqueKey });
   
       alert('Post created successfully:');
       window.location.reload();
